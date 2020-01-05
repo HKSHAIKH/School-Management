@@ -1,0 +1,26 @@
+
+//it is a system which manage schools funds
+
+//Student Management System
+Teachers
+students
+admin
+
+//Teacher   
+id
+name
+salary
+
+//student
+id
+name
+std
+fee
+feespaid
+
+//admin         //can add/remove student/teacher *setfees of student *set salary 
+teachers
+students
+totalFeeRecived
+expectedEarning
+totalSalaryPaid
