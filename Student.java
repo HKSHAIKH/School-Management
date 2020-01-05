@@ -96,5 +96,7 @@ public class Student {
 		this.feespaid = feespaid;
 	}
 
-	
+	public String toString() {
+		return name;
+	}
 }

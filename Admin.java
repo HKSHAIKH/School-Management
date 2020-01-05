@@ -12,6 +12,8 @@ public class Admin {
 	private int totalFeeRecived;
 	private int expectedEarning;
 	private int totalSalaryPaid;
+	private static int GRNo;
+	private static int TeacherNo;
 	
 	/**
 	 *constructor of admin.
@@ -22,14 +24,17 @@ public class Admin {
 		this.totalFeeRecived=0;
 		this.expectedEarning=0;
 		this.totalSalaryPaid=0;
+		Admin.GRNo=0;
+		Admin.TeacherNo = 0;
 	}
 	
-	
-	public void addTeacher(int id,String name,int salary){
-		teachers.add(new Teacher(id,name,salary));
+	//to add teacher
+	public void addTeacher(String name,int salary){
+		teachers.add(new Teacher(++TeacherNo,name,salary));
 	}
 	
-	public boolean cheakTeacher(int id) {
+	//to check teacher's id is valid.
+	public boolean cheakTeacherID(int id) {
 		for(int i=0;i<teachers.size();i++) {
 			if(teachers.get(i).getId()==id) {
 				return true;
@@ -38,9 +43,10 @@ public class Admin {
 		return false;
 	}
 	
+	//to get teacher.
 	public Teacher getTeacher(int id){
 		
-		if(cheakTeacher(id)) {
+		if(cheakTeacherID(id)) {
 			Teacher teacher=new Teacher();
 			for(int i=0;i<teachers.size();i++){
 				if(teachers.get(i).getId()==id){
@@ -52,16 +58,35 @@ public class Admin {
 		return null;
 	}
 	
-	public void updateSalary(int id,int salary){
-		Teacher teacher=getTeacher(id);
-		teacher.setSalary(salary);
+	/**
+	 * to get Id of teacher
+	 * @param name name of teacher
+	 * @return ID of teacher.
+	 */
+	public int getTeacherId(String name) {
+		for(int i=0;i<teachers.size();i++){
+			if(teachers.get(i).getName()==name){
+				return teachers.get(i).getId();
+			}
+		}
+		return 0;
 	}
 	
-	public void addStudent(int id,String name,int std,int fee){
-		students.add(new Student(id,name,std,fee));
+	
+	/**
+	 * to add student.
+	 * @param id id of a student
+	 * @param name name of a student
+	 * @param std std of a student
+	 * @param fee fee to be paid by student
+	 */
+	public void addStudent(String name,int std,int fee){
+		students.add(new Student(++GRNo,name,std,fee));
+		this.expectedEarning += fee;
 	}
 	
-	public boolean cheakStudent(int id) {
+	//to check that id is valid or not.
+	public boolean cheakStudentID(int id) {
 		for(int i=0;i<students.size();i++) {
 			if(students.get(i).getId()==id) {
 				return true;
@@ -70,8 +95,9 @@ public class Admin {
 		return false;
 	}
 	
+	//to get student.
 	public Student getStudent(int id){
-		if(cheakStudent(id)) {
+		if(cheakStudentID(id)) {
 			Student student=new Student();
 			for(int i=0;i<students.size();i++){
 				if(students.get(i).getId()==id){
@@ -83,23 +109,44 @@ public class Admin {
 		return null;
 	}
 	
-	public void updateStd(int id,int std){
-		Student student = getStudent(id);
-		student.setStd(std);
+	/**
+	 * to get id of student
+	 * @param name name of student
+	 * @return id of student
+	 */
+	public int getStudentID(String name) {
+		for(int i=0;i<students.size();i++){
+			if(students.get(i).getName()==name){
+				return students.get(i).getId();
+			}
+		}
+		return 0;
 	}
 	
-	public void updateFee(int id,int fee) {
-		Student student = getStudent(id);
-		student.setFee(fee); 
+	/**
+	 * @return the totalFeeRecived
+	 */
+	public int getTotalFeeRecived() {
+		return totalFeeRecived;
 	}
-	
-	
 
-	
+	/**
+	 * @return the expectedEarning
+	 */
+	public int getExpectedEarning() {
+		return expectedEarning;
+	}
+
+	/**
+	 * @return the totalSalaryPaid
+	 */
+	public int getTotalSalaryPaid() {
+		return totalSalaryPaid;
+	}
+
 	public static void main(String[] args){
 		Admin admin=new Admin();
-		admin.addTeacher(2018,"Hamza",12000);
-		admin.updateSalary(2018,15000);
+		admin.addTeacher("Hamza",12000);
 		System.out.println(admin.getTeacher(2018));
 	}
 	

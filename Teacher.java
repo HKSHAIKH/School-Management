@@ -3,7 +3,7 @@
  */
 
 /**
- * @author student 
+ * @author ubuntu 
  * This class tracks the record of teacher's salary,name and id.
  */
 public class Teacher {
@@ -68,11 +68,7 @@ public class Teacher {
 		this.salary=salary;
 	}
 	
-
-	public static void main (String[] args){
-		Object teacher=new Teacher(2018,"Hamza",30000);
-		System.out.println(teacher.getName());
+	public String toString() {
+		return name;
 	}
-	
-
 }
