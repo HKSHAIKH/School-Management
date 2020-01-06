@@ -10,6 +10,7 @@ public class Teacher {
 	private int id;
 	private String name;
 	private int salary;
+	private boolean isSalaryPaid;
 	
 	public Teacher(){
 		this.id=0;
@@ -68,7 +69,23 @@ public class Teacher {
 		this.salary=salary;
 	}
 	
+	/**
+	 * @return the isSalaryPaid
+	 */
+	public boolean isSalaryPaid() {
+		return isSalaryPaid;
+	}
+
+
+	/**
+	 * @param isSalaryPaid the isSalaryPaid to set
+	 */
+	public void setSalaryPaid(boolean isSalaryPaid) {
+		this.isSalaryPaid = isSalaryPaid;
+	}
+
+
 	public String toString() {
-		return name;
+		return "["+id+", "+name+", "+salary+", "+isSalaryPaid+"]";
 	}
 }

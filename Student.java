@@ -90,13 +90,17 @@ public class Student {
 	}
 
 	/**
-	 * @param feespaid the feespaid to set
+	 * @param fees the fees which is paid by student.
 	 */
-	public void setFeespaid(int feespaid) {
-		this.feespaid = feespaid;
+	public boolean payFees(int fees) {
+		if(fees <= fee-feespaid) {
+			this.feespaid += fees;
+			return true;
+		}
+		return false;
 	}
 
 	public String toString() {
-		return name;
+		return "["+id+", "+name+", "+std+", "+fee+", "+feespaid+"]";
 	}
 }
