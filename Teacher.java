@@ -1,8 +1,4 @@
 /**
- * 
- */
-
-/**
  * @author ubuntu 
  * This class tracks the record of teacher's salary,name and id.
  */

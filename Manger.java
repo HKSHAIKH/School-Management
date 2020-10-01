@@ -29,6 +29,7 @@ public class Manger {
 		admin.paySalary(1, 2000000000);
 		System.out.println(admin.getTotalSalaryPaid());
 		System.out.println(admin.removeTeacher(1));
+		GUI gui =new GUI(admin);
 	}
 
 }
